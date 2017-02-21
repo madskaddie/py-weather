@@ -1,0 +1,6 @@
+
+
+inicializar o virtualenv
+
+virtualenv .
+

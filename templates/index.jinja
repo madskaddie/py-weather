@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>como está o tempo</title>
+  </head>
+  <body>
+    <h1>Localidade</h1>
+    <form method="GET" action="/">
+      <select name="placeRef">
+          <option disabled selected value> -- select an option -- </option>
+        {%for p in places%}
+          <option value="{{ p.code}}">{{ p.description}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="ver" />
+    </form>
+    {% if selectedPlace %}
+    <h1> {{selectedPlace.description}}</h1>
+    {% if selectedPlace.weather %}
+    <ul>
+      <li>{{tempMin}}-{{tempMax}}</li>
+      <li>{{skyState}}</li>
+      <li>{{windSpeed}} - {{windDirection}}</li>
+    </ul>
+    {% endif %}
+    {% endif %}
+  </body>
+</html>
+
